@@ -1,7 +1,8 @@
 #Первое задание: выводим в одном общем списке логины курьеров c.login и количество их заказов o.id, считая их общее количество при помощи COUNT.
 # Для этого полностью объединяем две таблицы из БД - Couriers и Orders, где есть статус доставки o.inDelivery=true, с группировкой данных по курьерам.
+#Запрос скорректирован согласно замечанию, функцией COUNT охвачены все значения, без привязки к конкретному столбцу.
 
 SELECT c.login,
-       COUNT(o.id)
+       COUNT(*)
 FROM "Couriers" AS c INNER JOIN "Orders" AS o ON c.id=o.courierId WHERE o.inDelivery=true
 GROUP BY c.login
